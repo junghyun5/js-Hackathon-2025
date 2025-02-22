@@ -91,27 +91,21 @@ moonOrbit.add(moonMesh);
 // animate();
 // renderer.setAnimationLoop( animate );
 
-// 조명 추가
-const ambientLight = new THREE.AmbientLight(0x404040); // 부드러운 주변광
+const ambientLight = new THREE.AmbientLight(0x404040); 
 scene.add(ambientLight);
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1); // 강한 방향광
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1); 
 directionalLight.position.set(5, 5, 5).normalize();
 scene.add(directionalLight);
 
-// 애니메이션 함수
+
 function animate() {
     requestAnimationFrame(animate);
 
-    // 태양계 회전 (전체)
     solarSystem.rotation.y += 0.01;
 
-
-
-    // 지구 회전
     earthOrbit.rotation.y += 0.01;
 
-    // 달 회전
     moonOrbit.rotation.y += 0.05;
 
     renderer.render(scene, camera);
